@@ -11,7 +11,7 @@ static inline int vasprintf(char **strp, const char *fmt, va_list ap)
 	va_copy(cp, ap);
 
 	int len = vsnprintf(NULL, 0, fmt, ap) + 1;
-	if (len < 0) {
+	if (len <= 0) {
 		return -1;
 	}
 
